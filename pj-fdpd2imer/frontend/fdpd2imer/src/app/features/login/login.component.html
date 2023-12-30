@@ -1,0 +1,78 @@
+<div class="container is-fluid">
+  <div class="columns">
+    <div class="column">
+      <div class="content has-text-centered">
+        <h3>FDP・D-ダイマー比較支援ツール</h3>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-5">
+      <form class="box">
+        <div class="field">
+          <div class="control">
+            <div ngbDropdown class="d-inline-block">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                id="dropdownFacility"
+                ngbDropdownToggle
+              >
+                <span class="icon is-small">
+                  <i class="fas fa-home"></i>
+                </span>
+                施設を選んでください。
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownFacility">
+                <button ngbDropdownItem>琉球大学</button>
+                <button ngbDropdownItem>九州大学</button>
+                <button ngbDropdownItem>東京大学</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="user id" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="password" placeholder="Password" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+
+        <button class="button is-primary">Sign in</button>
+      </form>
+    </div>
+    <div class="column"></div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            FDP・D-ダイマー比較支援ツール by
+            <a href="https://www.sysmex.co.jp/">シスメックス株式会社 | Sysmex</a
+            >.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
