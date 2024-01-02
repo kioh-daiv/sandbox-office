@@ -1,1 +1,29 @@
-<p>search works!</p>
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <ng-container [ngbNavItem]="0">
+    <button ngbNavLink>比較選択</button>
+    <ng-template ngbNavContent>
+      <app-search-content></app-search-content>
+    </ng-template>
+  </ng-container>
+
+  @for (id of navs; track id) {
+  <li [ngbNavItem]="id">
+    <button ngbNavLink>
+      結果 {{ id }}
+      <span class="btn-close ms-3 fw-light" (click)="close($event, id)"></span>
+    </button>
+    <ng-template ngbNavContent>
+      <!-- <p>結果 {{ id }} content</p> -->
+      <app-results></app-results>
+    </ng-template>
+  </li>
+  }
+
+  <li class="nav-item" role="presentation">
+    <button type="button" class="nav-link" (click)="add($event)">...</button>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<pre>Active: {{ active }}</pre>

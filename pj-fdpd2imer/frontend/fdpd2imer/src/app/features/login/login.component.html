@@ -1,78 +1,66 @@
-<div class="container is-fluid">
-  <div class="columns">
-    <div class="column">
-      <div class="content has-text-centered">
-        <h3>FDP・D-ダイマー比較支援ツール</h3>
-      </div>
+<div class="container text-center">
+  <div class="card text-center">
+    <div class="card-header">
+      <span class="fs-3">FDP・D-ダイマー比較支援ツール</span>
     </div>
-  </div>
-  <div class="columns">
-    <div class="column"></div>
-    <div class="column is-5">
-      <form class="box">
-        <div class="field">
-          <div class="control">
-            <div ngbDropdown class="d-inline-block">
-              <button
-                type="button"
-                class="btn btn-outline-primary"
-                id="dropdownFacility"
-                ngbDropdownToggle
-              >
-                <span class="icon is-small">
-                  <i class="fas fa-home"></i>
-                </span>
-                施設を選んでください。
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownFacility">
-                <button ngbDropdownItem>琉球大学</button>
-                <button ngbDropdownItem>九州大学</button>
-                <button ngbDropdownItem>東京大学</button>
-              </div>
-            </div>
+    <div class="card-body">
+      <!-- <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+      <form>
+        <div class="mb-3 row">
+          <label for="selectFacility" class="col-sm-2 col-form-label"
+            >施設</label
+          >
+          <div class="col-sm-10">
+            <select
+              class="form-select"
+              aria-label="Default select facility"
+              id="selectFacility"
+            >
+              <option selected>Open this select menu</option>
+              <option value="001">琉球大学</option>
+              <option value="002">九州大学</option>
+              <option value="003">Systemx Hospital</option>
+            </select>
           </div>
         </div>
 
-        <div class="field">
-          <p class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="user id" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </p>
+        <div class="mb-3 row">
+          <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="inputID"
+              maxlength="10"
+              placeholder="IDを入力してください。（10文字以内）"
+            />
+          </div>
         </div>
-
-        <div class="field">
-          <p class="control has-icons-left has-icons-right">
-            <input class="input" type="password" placeholder="Password" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </p>
+        <div class="mb-3 row">
+          <label for="inputPassword" class="col-sm-2 col-form-label"
+            >Password</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              maxlength="20"
+              placeholder="Passwordを入力してください。（20文字以内）"
+            />
+          </div>
         </div>
-
-        <button class="button is-primary">Sign in</button>
+        <a class="btn btn-primary" (click)="navigateToSearchPage()">Login in</a>
       </form>
     </div>
-    <div class="column"></div>
-  </div>
-  <div class="columns">
-    <div class="column">
-      <footer class="footer">
-        <div class="content has-text-centered">
-          <p>
-            FDP・D-ダイマー比較支援ツール by
-            <a href="https://www.sysmex.co.jp/">シスメックス株式会社 | Sysmex</a
-            >.
-          </p>
-        </div>
-      </footer>
+    <div class="card-footer text-body-secondary">
+      <div class="mt-3 row">
+        <p class="fs-6">
+          FDP・D-ダイマー比較支援ツール by
+          <a href="https://www.yahoo.co.jp/">○○○○株式会社 | ○○○○</a>.
+        </p>
+      </div>
     </div>
   </div>
 </div>

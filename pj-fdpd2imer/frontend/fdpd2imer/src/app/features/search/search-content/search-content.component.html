@@ -1,0 +1,357 @@
+<div class="container">
+  <div class="row mb-3"></div>
+  <form>
+    <!-- radio FDP/D -->
+    <fieldset class="row mb-3">
+      <legend class="col-form-label col-sm-2 pt-0">項目選択（必須）</legend>
+      <div class="col-sm-10">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="option1"
+            checked
+          />
+          <label class="form-check-label" for="inlineRadio1">FDP</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio2"
+            value="option2"
+          />
+          <label class="form-check-label" for="inlineRadio2">D-ダイマー</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="row mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">比較条件</h5>
+
+          <!-- 日付指定 -->
+          <div class="row mb-3">
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="flexCheckChecked"
+                  [(ngModel)]="isDateChecked"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  日付指定　※チェックONの場合、カレンダー選択無効
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendar -->
+          <div class="row mb-3">
+            <div class="col-3">
+              <div class="dp-hidden position-absolute">
+                <div class="input-group">
+                  <input
+                    name="datepicker"
+                    class="form-control"
+                    ngbDatepicker
+                    #datepicker="ngbDatepicker"
+                    [autoClose]="'outside'"
+                    (dateSelect)="onDateSelection($event)"
+                    [displayMonths]="2"
+                    [dayTemplate]="t"
+                    outsideDays="hidden"
+                    [startDate]="fromDate!"
+                    tabindex="-1"
+                    [disabled]="isDateChecked"
+                  />
+                  <ng-template #t let-date let-focused="focused">
+                    <span
+                      class="custom-day"
+                      [class.focused]="focused"
+                      [class.range]="isRange(date)"
+                      [class.faded]="isHovered(date) || isInside(date)"
+                      (mouseenter)="hoveredDate = date"
+                      (mouseleave)="hoveredDate = null"
+                    >
+                      {{ date.day }}
+                    </span>
+                  </ng-template>
+                </div>
+              </div>
+              <div class="input-group">
+                <input
+                  #dpFromDate
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  name="dpFromDate"
+                  [value]="formatter.format(fromDate)"
+                  (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
+                />
+                <button
+                  class="btn btn-outline-secondary bi bi-calendar3"
+                  (click)="datepicker.toggle()"
+                  type="button"
+                ></button>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="input-group">
+                <input
+                  #dpToDate
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  name="dpToDate"
+                  [value]="formatter.format(toDate)"
+                  (input)="toDate = validateInput(toDate, dpToDate.value)"
+                />
+                <button
+                  class="btn btn-outline-secondary bi bi-calendar3"
+                  (click)="datepicker.toggle()"
+                  type="button"
+                ></button>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="dp-hidden position-absolute">
+                <div class="input-group">
+                  <input
+                    name="datepicker"
+                    class="form-control"
+                    ngbDatepicker
+                    #datepicker="ngbDatepicker"
+                    [autoClose]="'outside'"
+                    (dateSelect)="onDateSelection($event)"
+                    [displayMonths]="2"
+                    [dayTemplate]="t"
+                    outsideDays="hidden"
+                    [startDate]="fromDate!"
+                    tabindex="-1"
+                    [disabled]="isDateChecked"
+                  />
+                  <ng-template #t let-date let-focused="focused">
+                    <span
+                      class="custom-day"
+                      [class.focused]="focused"
+                      [class.range]="isRange(date)"
+                      [class.faded]="isHovered(date) || isInside(date)"
+                      (mouseenter)="hoveredDate = date"
+                      (mouseleave)="hoveredDate = null"
+                    >
+                      {{ date.day }}
+                    </span>
+                  </ng-template>
+                </div>
+              </div>
+              <div class="input-group">
+                <input
+                  #dpFromDate
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  name="dpFromDate"
+                  [value]="formatter.format(fromDate)"
+                  (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
+                />
+                <button
+                  class="btn btn-outline-secondary bi bi-calendar3"
+                  (click)="datepicker.toggle()"
+                  type="button"
+                ></button>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="input-group">
+                <input
+                  #dpToDate
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  name="dpToDate"
+                  [value]="formatter.format(toDate)"
+                  (input)="toDate = validateInput(toDate, dpToDate.value)"
+                />
+                <button
+                  class="btn btn-outline-secondary bi bi-calendar3"
+                  (click)="datepicker.toggle()"
+                  type="button"
+                ></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 試薬指定 -->
+          <div class="row mb-3">
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckChecked"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  試薬指定　※チェックONの場合、試薬指定選択無効
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 種類/Lot -->
+          <div class="row mb-3">
+            <div class="col-auto">
+              <label class="col-form-label" for="inputReagentKind1">種類</label>
+            </div>
+            <div class="col-auto">
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                id="inputReagentKind1"
+                value="琉球大学"
+              />
+            </div>
+            <div class="col-auto">
+              <label class="col-form-label" for="inputReagentLot1">Lot</label>
+            </div>
+            <div class="col-auto">
+              <input
+                type="text"
+                class="form-control"
+                id="inputReagentLot1"
+                placeholder="Lotを入力してください"
+              />
+            </div>
+            <div class="col-auto">
+              <label class="col-form-label">VS</label>
+            </div>
+            <div class="col-auto">
+              <label class="col-form-label" for="inputReagentKind">種類</label>
+            </div>
+            <div class="col-auto">
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                id="inputReagentKind"
+                value="琉球大学"
+              />
+            </div>
+            <div class="col-auto">
+              <label class="col-form-label" for="inputReagentLot2">Lot</label>
+            </div>
+            <div class="col-auto">
+              <input
+                type="text"
+                class="form-control"
+                id="inputReagentLot2"
+                placeholder="Lotを入力してください"
+              />
+            </div>
+          </div>
+
+          <!-- 標準物質 -->
+          <div class="row mb-3">
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckChecked"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  標準物質指定　※チェックONの場合、標準物質指定選択無効
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 種類/Lot -->
+          <div class="row mb-3">
+            <div class="col-auto">
+              <label class="col-form-label" for="inputStandardMaterialKind1"
+                >種類</label
+              >
+            </div>
+            <div class="col-auto">
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                id="inputStandardMaterialKind1"
+                value="琉球大学"
+              />
+            </div>
+            <div class="col-auto">
+              <label class="col-form-label" for="inputStandardMaterialKindLot1"
+                >Lot</label
+              >
+            </div>
+            <div class="col-auto">
+              <input
+                type="text"
+                class="form-control"
+                id="inputStandardMaterialKindLot1"
+                placeholder="Lotを入力してください"
+              />
+            </div>
+            <div class="col-auto">
+              <label class="col-form-label">VS</label>
+            </div>
+            <div class="col-auto">
+              <label class="col-form-label" for="inputStandardMaterialKindKind"
+                >種類</label
+              >
+            </div>
+            <div class="col-auto">
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                id="inputStandardMaterialKindKind"
+                value="琉球大学"
+              />
+            </div>
+            <div class="col-auto">
+              <label class="col-form-label" for="inputReagentLot2">Lot</label>
+            </div>
+            <div class="col-auto">
+              <input
+                type="text"
+                class="form-control"
+                id="inputReagentLot2"
+                placeholder="Lotを入力してください"
+              />
+            </div>
+          </div>
+
+          <!-- 検索 -->
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button
+              class="btn btn-primary"
+              type="button"
+              (click)="generateResults()"
+            >
+              検索
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title mb-3">指定条件</h5>
+        <pre *ngIf="!isDateChecked">From date model: {{ fromDate | json }}</pre>
+        <pre *ngIf="!isDateChecked">To date model: {{ toDate | json }}</pre>
+      </div>
+    </div>
+  </div>
+</div>

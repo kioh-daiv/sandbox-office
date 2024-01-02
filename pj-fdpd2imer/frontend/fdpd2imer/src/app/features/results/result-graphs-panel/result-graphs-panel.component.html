@@ -1,0 +1,753 @@
+<div class="container mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-3"></div>
+        <div class="col-6 fs-4 text-center">
+          患者データ比較（選択条件全データ）
+        </div>
+        <div class="col-3">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#reagentModal"
+            >
+              試薬・標準物質情報
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <div class="row text-center mb-2 bg-info text-white">
+                <div class="col">条件①</div>
+              </div>
+              <div class="row">
+                <div class="col-9"></div>
+                <div class="col-3 fw-bold">中央値:15</div>
+              </div>
+              <canvas
+                baseChart
+                class="chart"
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [type]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+              >
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <table class="table table-bordered fs-6">
+            <tbody>
+              <tr>
+                <td colspan="3" class="text-center">⇔</td>
+              </tr>
+
+              <tr>
+                <td>33.0%</td>
+                <td class="bg-success text-white">低め</td>
+                <td>にシフト</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <div class="row text-center mb-2 bg-info text-white">
+                <div class="col">条件②</div>
+              </div>
+              <div class="row">
+                <div class="col-9"></div>
+                <div class="col-3 fw-bold">中央値:10</div>
+              </div>
+              <canvas
+                baseChart
+                class="chart"
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [type]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+              >
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-3">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelectLot"
+              >Lot</label
+            >
+            <select class="form-select" id="inputGroupSelectLot">
+              <option selected>Choose...</option>
+              <option value="1">Lot00001</option>
+              <option value="2">Lot00002</option>
+              <option value="3">Lot00003</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6 fs-4 text-center">
+          コントロールデータ比較（選択条件全データ）
+        </div>
+        <div class="col-3">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#lotModal"
+            >
+              詳細情報
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <div class="row text-center mb-2 bg-info text-white">
+                <div class="col">条件①</div>
+              </div>
+              <div class="row">
+                <div class="col-3 fw-bold bg-success text-white">種別:L</div>
+                <div class="col-6"></div>
+                <div class="col-3 fw-bold">中央値:5.0</div>
+              </div>
+              <canvas
+                baseChart
+                class="chart"
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [type]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+              >
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <table class="table table-bordered fs-6">
+            <tbody>
+              <tr>
+                <td colspan="3" class="text-center">⇔</td>
+              </tr>
+
+              <tr>
+                <td>20.0%</td>
+                <td class="bg-success text-white">低め</td>
+                <td>にシフト</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <div class="row text-center mb-2 bg-info text-white">
+                <div class="col">条件②</div>
+              </div>
+              <div class="row">
+                <div class="col-3 fw-bold bg-success text-white">種別:L</div>
+                <div class="col-6"></div>
+                <div class="col-3 fw-bold">中央値:4.0</div>
+              </div>
+              <canvas
+                baseChart
+                class="chart"
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [type]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+              >
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <div class="row text-center mb-2 bg-info text-white">
+                <div class="col">条件①</div>
+              </div>
+              <div class="row">
+                <div class="col-3 fw-bold bg-danger text-white">種別:H</div>
+                <div class="col-6"></div>
+                <div class="col-3 fw-bold">中央値:40.0</div>
+              </div>
+              <canvas
+                baseChart
+                class="chart"
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [type]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+              >
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <table class="table table-bordered fs-6">
+            <tbody>
+              <tr>
+                <td colspan="3" class="text-center">⇔</td>
+              </tr>
+
+              <tr>
+                <td>25.0%</td>
+                <td class="bg-success text-white">低め</td>
+                <td>にシフト</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <div class="row text-center mb-2 bg-info text-white">
+                <div class="col">条件②</div>
+              </div>
+              <div class="row">
+                <div class="col-3 fw-bold bg-danger text-white">種別:H</div>
+                <div class="col-6"></div>
+                <div class="col-3 fw-bold">中央値:30.0</div>
+              </div>
+              <canvas
+                baseChart
+                class="chart"
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [type]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+              >
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="reagentModal"
+  tabindex="-1"
+  aria-labelledby="reagentModalLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="reagentModalLabel">
+          試薬情報／標準物質情報
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row mb-2 text-center">
+            <div class="col">試薬情報</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">種類</th>
+                    <th scope="col">Lot</th>
+                    <th scope="col">使用期間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>FDP</td>
+                    <td>試薬A</td>
+                    <td>AXXXX</td>
+                    <td>～2022年1月10日</td>
+                  </tr>
+                  <tr>
+                    <td>FDP</td>
+                    <td>試薬B</td>
+                    <td>A1XXX</td>
+                    <td>2022年1月10日～</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">種類</th>
+                    <th scope="col">Lot</th>
+                    <th scope="col">使用期間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>FDP</td>
+                    <td>試薬A</td>
+                    <td>AXXXX</td>
+                    <td>～2022年1月10日</td>
+                  </tr>
+                  <tr>
+                    <td>FDP</td>
+                    <td>試薬B</td>
+                    <td>A1XXX</td>
+                    <td>2022年1月10日～</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">種類</th>
+                    <th scope="col">Lot</th>
+                    <th scope="col">使用期間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>D-ダイマー</td>
+                    <td>試薬A</td>
+                    <td>AXXXX</td>
+                    <td>～2022年1月10日</td>
+                  </tr>
+                  <tr>
+                    <td>D-ダイマー</td>
+                    <td>試薬B</td>
+                    <td>A1XXX</td>
+                    <td>2022年1月10日～</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">種類</th>
+                    <th scope="col">Lot</th>
+                    <th scope="col">使用期間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>D-ダイマー</td>
+                    <td>試薬A</td>
+                    <td>AXXXX</td>
+                    <td>～2022年1月10日</td>
+                  </tr>
+                  <tr>
+                    <td>D-ダイマー</td>
+                    <td>試薬B</td>
+                    <td>A1XXX</td>
+                    <td>2022年1月10日～</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr />
+          <div class="row mb-2 text-center">
+            <div class="col">標準物質情報情報</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">種類</th>
+                    <th scope="col">Lot</th>
+                    <th scope="col">使用期間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>FDP</td>
+                    <td>試薬A</td>
+                    <td>AXXXX</td>
+                    <td>～2022年1月10日</td>
+                  </tr>
+                  <tr>
+                    <td>FDP</td>
+                    <td>試薬B</td>
+                    <td>A1XXX</td>
+                    <td>2022年1月10日～</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">種類</th>
+                    <th scope="col">Lot</th>
+                    <th scope="col">使用期間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>FDP</td>
+                    <td>試薬A</td>
+                    <td>AXXXX</td>
+                    <td>～2022年1月10日</td>
+                  </tr>
+                  <tr>
+                    <td>FDP</td>
+                    <td>試薬B</td>
+                    <td>A1XXX</td>
+                    <td>2022年1月10日～</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">種類</th>
+                    <th scope="col">Lot</th>
+                    <th scope="col">使用期間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>D-ダイマー</td>
+                    <td>試薬A</td>
+                    <td>AXXXX</td>
+                    <td>～2022年1月10日</td>
+                  </tr>
+                  <tr>
+                    <td>D-ダイマー</td>
+                    <td>試薬B</td>
+                    <td>A1XXX</td>
+                    <td>2022年1月10日～</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">種類</th>
+                    <th scope="col">Lot</th>
+                    <th scope="col">使用期間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>D-ダイマー</td>
+                    <td>試薬A</td>
+                    <td>AXXXX</td>
+                    <td>～2022年1月10日</td>
+                  </tr>
+                  <tr>
+                    <td>D-ダイマー</td>
+                    <td>試薬B</td>
+                    <td>A1XXX</td>
+                    <td>2022年1月10日～</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal lot -->
+<div
+  class="modal fade"
+  id="lotModal"
+  tabindex="-1"
+  aria-labelledby="lotModalLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="lotModalLabel">ｺﾝﾄﾛｰﾙﾃﾞｰﾀ比較</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row mb-2 fw-bold">Lot: A10000</div>
+          <div class="row mb-2">
+            <div class="col">
+              <div class="container">
+                <div class="row text-center mb-2">
+                  <div class="col bg-info text-white">条件①</div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-3 fw-bold bg-success text-white">種別:L</div>
+                  <div class="col-9"></div>
+                </div>
+                <table class="table table-bordered text-center">
+                  <thead>
+                    <tr>
+                      <th scope="col" colspan="3">階数</th>
+                      <th scope="col">度数</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col">
+              <div class="container">
+                <div class="row text-center mb-2">
+                  <div class="col bg-info text-white">条件②</div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-3 fw-bold bg-success text-white">種別:L</div>
+                  <div class="col-9"></div>
+                </div>
+                <table class="table table-bordered text-center">
+                  <thead>
+                    <tr>
+                      <th scope="col" colspan="3">階数</th>
+                      <th scope="col">度数</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <div class="container">
+                <div class="row mb-2">
+                  <div class="col-3 fw-bold bg-danger text-white">種別:H</div>
+                  <div class="col-9"></div>
+                </div>
+                <table class="table table-bordered text-center">
+                  <thead>
+                    <tr>
+                      <th scope="col" colspan="3">階数</th>
+                      <th scope="col">度数</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col">
+              <div class="container">
+                <div class="row mb-2">
+                  <div class="col-3 fw-bold bg-danger text-white">種別:H</div>
+                  <div class="col-9"></div>
+                </div>
+                <table class="table table-bordered text-center">
+                  <thead>
+                    <tr>
+                      <th scope="col" colspan="3">階数</th>
+                      <th scope="col">度数</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                    <tr>
+                      <td>2.5</td>
+                      <td>-</td>
+                      <td>3.5</td>
+                      <td>126</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
