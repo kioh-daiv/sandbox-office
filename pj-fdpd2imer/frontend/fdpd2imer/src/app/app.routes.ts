@@ -10,10 +10,8 @@ export const routes: Routes = [
       import('./features/search/search.module').then((m) => m.SearchModule),
   },
   // {
-  //   path: 'feature2',
+  //   path: 'results',
   //   loadChildren: () =>
-  //     import('./features/feature2/feature2.module').then(
-  //       (m) => m.Feature2Module
-  //     ),
+  //     import('./features/results/results.module').then((m) => m.ResultsModule),
   // },
 ];

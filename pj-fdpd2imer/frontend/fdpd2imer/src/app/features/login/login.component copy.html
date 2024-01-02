@@ -1,0 +1,149 @@
+<div class="container text-center">
+  <div class="card text-center">
+    <div class="card-header">FDP・D-ダイマー比較支援ツール</div>
+    <div class="card-body">
+      <!-- <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+      <div class="mb-3 row">
+        <div class="dropdown">
+          <button
+            class="btn btn-info dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputID" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputPassword" class="col-sm-2 col-form-label"
+          >Password</label
+        >
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword" />
+        </div>
+      </div>
+      <a href="#" class="btn btn-primary">Login in</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+      <p>
+        FDP・D-ダイマー比較支援ツール by
+        <a href="https://www.sysmex.co.jp/">シスメックス株式会社 | Sysmex</a>.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <h3>FDP・D-ダイマー比較支援ツール</h3>
+  </div>
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row row-cols-3">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="content has-text-centered">
+        <h3>FDP・D-ダイマー比較支援ツール</h3>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-5">
+      <div class="box">
+        <div class="field">
+          <div class="control">
+            <div ngbDropdown class="d-inline-block">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                id="dropdownFacility"
+                ngbDropdownToggle
+              >
+                <span class="icon is-small">
+                  <i class="fas fa-home"></i>
+                </span>
+                {{ selectedItem }}
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownFacility">
+                <button
+                  ngbDropdownItem
+                  (click)="selectItem('施設を選んでください。')"
+                >
+                  リセット
+                </button>
+                <!-- ここはDBから取得したリストをループして取得する -->
+                <button ngbDropdownItem (click)="selectItem('琉球大学')">
+                  琉球大学
+                </button>
+                <button ngbDropdownItem (click)="selectItem('九州大学')">
+                  九州大学
+                </button>
+                <button ngbDropdownItem (click)="selectItem('東京大学')">
+                  東京大学
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="user id" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="password" placeholder="Password" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+
+        <button class="button is-primary" (click)="navigateToSearchPage()">
+          Sign in
+        </button>
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            FDP・D-ダイマー比較支援ツール by
+            <a href="https://www.sysmex.co.jp/">シスメックス株式会社 | Sysmex</a
+            >.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
